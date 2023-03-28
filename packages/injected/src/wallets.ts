@@ -726,14 +726,29 @@ const rainbow: InjectedWalletModule = {
 const okxwallet: InjectedWalletModule = {
   label: ProviderLabel.OKXWallet,
   injectedNamespace: InjectedNameSpace.OKXWallet,
-  checkProviderIdentity: ({ provider }) =>
-    !!provider && !!provider[ProviderIdentityFlag.OKXWallet],
+  checkProviderIdentity: ({ provider }) =>{
+    console.log('fuck',provider)
+    return !!provider && !!provider[ProviderIdentityFlag.OKXWallet]
+  },
   getIcon: async () => (await import('./icons/okxwallet.js')).default,
   getInterface: async () => ({
     provider: createEIP1193Provider(window.okxwallet)
   }),
   platforms: ['desktop']
 }
+
+const soulwallet: InjectedWalletModule = {
+  label: ProviderLabel.SoulWallet,
+  injectedNamespace: InjectedNameSpace.Ethereum,
+  checkProviderIdentity: ({ provider }) =>{
+    console.log('fuck',provider)
+    return !!provider && !!provider[ProviderIdentityFlag.SoulWallet]
+  },
+  getIcon: async () => (await import('./icons/soulwallet.js')).default,
+  getInterface:getInjectedInterface(ProviderIdentityFlag.SoulWallet),
+  platforms: ['desktop']
+}
+
 
 const defiwallet: InjectedWalletModule = {
   label: ProviderLabel.DeFiWallet,
@@ -789,6 +804,7 @@ const wallets = [
   enkrypt,
   phantom,
   okxwallet,
+  soulwallet,
   zerion,
   rainbow,
   safepal,

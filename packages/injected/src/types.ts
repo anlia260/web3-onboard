@@ -56,6 +56,7 @@ export enum ProviderIdentityFlag {
   Enkrypt = 'isEnkrypt',
   Phantom = 'isPhantom',
   OKXWallet = 'isOkxWallet',
+  SoulWallet = 'isSoul',
   Zeal = 'isZeal',
   Zerion = 'isZerion',
   Rainbow = 'isRainbow',
@@ -108,6 +109,7 @@ export enum ProviderLabel {
   Zeal = 'Zeal',
   Phantom = 'Phantom',
   OKXWallet = 'OKX Wallet',
+  SoulWallet = 'Soul Wallet',
   Zerion = 'Zerion',
   Rainbow = 'Rainbow',
   SafePal = 'SafePal',
@@ -174,6 +176,7 @@ export interface CustomWindow extends Window {
     ethereum: InjectedProvider
   }
   okxwallet: InjectedProvider
+  soulwallet: InjectedProvider
   trustwallet: InjectedProvider
   deficonnectProvider: InjectedProvider
 }
